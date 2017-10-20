@@ -37,6 +37,11 @@ class ThingsController < ApplicationController
     end
   end
 
+  def create_via_job
+    SomeJob.perform_later
+    redirect_to things_path
+  end
+
   # PATCH/PUT /things/1
   # PATCH/PUT /things/1.json
   def update
